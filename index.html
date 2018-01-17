@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Schedule</title>
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Materialize Icon Set -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Firebase database -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  </head>
+  <body>
+  	<div id="header" class="section col xl12">
+  		<div class="row center-align">
+        <h1>Full Stack Train Schedule</h1>
+        <h4>Keeping Everyone on Track</h4>
+      </div>
+
+      <!-- New Train Form -->
+      <div id="newTrain" class="row container">
+        <h3>Schedule a New Train</h3>
+        <form class="col xl12">
+          <div class="row">
+            <div class="input-field col xl3">
+              <input id="name" type="text" class="validate">
+              <label for="name">Train Name</label>
+            </div>
+            <div class="input-field col xl3">
+              <input id="destination" type="text" class="validate">
+              <label for="destination">Destination</label>
+            </div>
+            <div class="input-field col xl3">
+              <input id="time" type="text" class="validate">
+              <label for="time">First Train (military time - HH:mm)</label>
+            </div>
+            <div class="input-field col xl3">
+              <input id="frequency" type="text" class="validate">
+              <label for="frequency">Frequency (minutes)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col xl12">
+              <input class="btn waves-effect waves-light" type="submit" value="Add Train" id="addTrain">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Train Schedule Table -->
+  	<div id="currentSchedule" class="row container">
+  		<h2>Train Schedule</h2>
+  		<table id="schedule">
+        <thead>
+            <tr>
+                <th>Train Name</th>
+                <th>Destination</th>
+                <th>Frequency (min)</th>
+                <th>Next Arrival</th>
+                <th>Minutes Away</th>
+            </tr>
+        </thead>      
+      </table>
+  	</div>
+  	<div id="footer" class="col xl12">
+      <div class="copyright container row valign-wrapper">
+          <h6>Created by Tonye Praught | Copyright &#169; 2018</h6>
+      </div>
+  	</div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Moment JS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="assets/js/master.js"></script>
+
+  </body>
+</html>

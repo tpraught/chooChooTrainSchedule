@@ -1,0 +1,102 @@
+body {
+	position: relative;
+	margin:0 auto;
+	color:#20315a;
+	display:flex;
+	flex-direction:column;
+	height:100vh; /* This avoids the IE 10-11 'min-height' bug */
+}
+
+main {
+}
+
+.clearFix::after {
+	content: "";
+	display:block;
+	clear:both;
+}
+
+#header {
+	background:url('../images/bkg_trainTracks.jpg') top center no-repeat;
+	max-height:622px;
+}
+
+h1 {
+	font-weight:bold;
+	margin:2.1rem 0 .68rem 0;
+}
+
+#newTrain {
+	background:rgba(255, 255, 255, 0.5);
+	padding:20px;
+	margin:70px auto;
+}
+h2 {
+	margin-top:0px;
+}
+
+h3 {
+	font-size:2rem;
+	margin-top:0px;
+}
+
+#currentSchedule {
+	margin:50px auto;
+}
+
+/* label color */
+.input-field label {
+	color: #20315a;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+	color: #20315a;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #20315a;
+	box-shadow: 0 1px 0 0 #20315a;
+}
+/* valid color */
+.input-field input[type=text].valid {
+	border-bottom: 1px solid #20315a;
+	box-shadow: 0 1px 0 0 #20315a;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+	border-bottom: 1px solid #20315a;
+	box-shadow: 0 1px 0 0 #20315a;
+}
+
+#footer {
+	flex: 1 0 auto;
+	background:url('../images/bkg_footerTracks.jpg') top center no-repeat;
+	height:150px;
+}
+
+#footer .copyright {
+	background:rgba(255, 255, 255, 0.5);
+}
+
+#footer .row {
+	margin:47px auto;
+}
+
+h6 {
+	font-weight:bold;
+	margin:20px auto;
+	text-align: center;
+}
+
+
+@media (max-width: 599px) { 
+	h1 {
+		font-size:2.5rem;
+	}
+	h4 {
+		display:none;
+	}
+	#newTrain {
+		margin-top:20px;
+	}
+}
