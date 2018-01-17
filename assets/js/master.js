@@ -10,9 +10,10 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+var getKey = '';
 
 // Capture Button Click
-$("#addTrain").on("click", function(event) {
+$('#addTrain').on('click', function(event) {
   event.preventDefault();
 
   // Grabbed values from text boxes
@@ -20,7 +21,6 @@ $("#addTrain").on("click", function(event) {
   var trnDestination = $('#destination').val().trim();
   var trnTime = $('#time').val().trim();
   var trnFrequency = $('#frequency').val().trim();
-  var getKey ='';
 
   // Creating local temp object for holding train data
   var newTrain = {
@@ -46,7 +46,7 @@ $("#addTrain").on("click", function(event) {
 
 // Creating event for adding Trains to the Firebase database
 // Adding the new train to a new row in the Train Schedule
-database.ref().on('child_added', function(childSnapshot) {
+database.ref().on('child_added', function(childSnapshot, prevChildKey) {
        
   console.log(childSnapshot.val());
 
@@ -77,13 +77,13 @@ database.ref().on('child_added', function(childSnapshot) {
   console.log('Next Arrival: ' + trnNextArrival);
 
   // Add each train's data into the table
-  var tableData = '<tr><td>' + trnName + '</td><td>' + trnDestination + '</td><td>' +  trnFrequency + '</td><td>' + trnNextArrival + '</td><td>' + minTillNextTrain + '</td></td>' + '<button type="submit" class="removeTrn waves-effect waves-light btn" value="Remove Train"><i class="small material-icons">delete_forever</i></button>' + '</td></tr>';
+  var tableData = '<tr><td>' + trnName + '</td><td>' + trnDestination + '</td><td>' +  trnFrequency + '</td><td>' + trnNextArrival + '</td><td>' + minTillNextTrain + '</td><td>' + '<button type="submit" class="removeTrn waves-effect waves-light btn" value="Remove Train"><i class="small material-icons">delete_forever</i></button>' + '</td></tr>';
   $('#schedule').prepend(tableData);
 }, function(errorObject) {
       console.log("Errors handled: " + errorObject.code);
 });
 
-$("body").on("click", ".removeTrn", function(){
+$('body').on('click', '.removeTrn', function(){
      $(this).closest ('tr').remove();
      getKey = $(this).parent().parent().attr('id');
      database.child(getKey).remove();
